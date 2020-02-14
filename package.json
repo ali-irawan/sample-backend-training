@@ -1,0 +1,22 @@
+{
+  "name": "sample-backend-training",
+  "version": "1.0.0",
+  "description": "Sample backend for training",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali-irawan/sample-backend-training.git"
+  },
+  "author": "Ali Irawan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ali-irawan/sample-backend-training/issues"
+  },
+  "homepage": "https://github.com/ali-irawan/sample-backend-training#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
