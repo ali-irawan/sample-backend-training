@@ -1,5 +1,4 @@
 require('dotenv').config()
-const authenticateJWT = require('./auth')
 
 const express = require('express')
 const app = express()
@@ -7,6 +6,24 @@ const port = process.env.PORT || 3000
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const TOKEN_KEY = process.env.TOKEN_KEY
+
+const authenticateJWT = (req, res, next) => {
+  const authHeader = req.headers.authorization;
+
+  if (authHeader) {
+      const token = authHeader.split(' ')[1];
+      jwt.verify(token, TOKEN_KEY, (err, user) => {
+          if (err) {
+              return res.sendStatus(403);
+          }
+
+          req.user = user;
+          next();
+      });
+  } else {
+      res.sendStatus(401);
+  }
+};
 
 // Some users
 const users = [
